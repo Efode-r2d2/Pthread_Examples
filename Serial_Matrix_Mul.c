@@ -34,7 +34,7 @@ int main(int argc, char * argv[])
 	/* getting row size from command line */
 	row = strtol(argv[1],NULL,10);
 	/* getting col size from command line */
-  col = strtol(argv[1],NULL,10);
+  col = strtol(argv[2],NULL,10);
 	
 	/*allocating memory for the two dimensional array */
   array = malloc(row*sizeof(int*));
@@ -53,14 +53,14 @@ int main(int argc, char * argv[])
 	setZero(y,row);
   
 	/*printing input 2D array */
-  printf("input 2D array \n");
-  print2D(array,col,row);
+  //printf("input 2D array \n");
+  //print2D(array,col,row);
   /* printing input 1D array*/
-  printf("input 1D array \n");
-  print(x,col);
+  //printf("input 1D array \n");
+  //print(x,col);
   /* printing output1D array*/
-  printf("output 1D array \n");
-  print(y,row); 
+  //printf("output 1D array \n");
+  //print(y,row); 
 	
 	/*multiplication */
 	clock_t begin = clock();
@@ -68,18 +68,21 @@ int main(int argc, char * argv[])
 	clock_t end = clock();
 	
 	/* printing the result */
-  printf("output 1D array \n");
-  print(y,row);
+  //printf("output 1D array \n");
+  //print(y,row);
 	
 	/* calculate time elapsed */
 	timeElapsed(begin,end);
+  free(array);
+  free(x);
+  free(y);
 	return 0;
 }
 /* initializing one dimensional array */
 void init(int * array, int size){
 	srand(1);
 	for(int i=0;i<size;i++){
-		array[i] = i+1;	
+		array[i] = 1;	
 	}
 }
 /* printing one dimensional array */
@@ -93,7 +96,7 @@ void init2D(int ** array, int col, int row){
 	srand(1);
 	for(int i=0;i<row;i++){
 		for(int j=0;j<col;j++){
-			array[i][j]= i*j+1;
+			array[i][j]=1;
 		}	
 	}
 }
