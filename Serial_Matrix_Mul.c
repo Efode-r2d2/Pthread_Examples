@@ -14,6 +14,18 @@ void print2D(int** array, int col, int row);
 
 int main(void)
 {
+	int col;row;
+	int ** array;
+	int * y, m;
+	/* getting row size from command line */
+	row = strtol(argv[1],NULL,10);
+	/* getting col size from command line */
+  col = strtol(argv[1],NULL,10);
+	/*allocating memory for an array*/
+  array = malloc(row*sizeof(int*));
+	for(int i=0;i<row;i++){
+	array[i] = malloc(col*sizeof(int));
+	}
 	
 	return 0;
 }
@@ -41,7 +53,11 @@ void init2D(int ** array, int col, int row){
 }
 /* printing two dimensional array */
 void print2D(int** array, int col, int row){
-	
+	for(int i=0;i<row;i++){
+		for(int j=0;j<col;j++){
+			printf("%d \n", array[i][j]);		
+		}	
+	}
 }
 
 
