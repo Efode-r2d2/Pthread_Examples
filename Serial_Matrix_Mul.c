@@ -1,4 +1,10 @@
-/*Simple serial matrix multiplication program */
+/*****************************************************************************
+	Desc: Simple serial matrix multiplication program 
+	this program can multiply m*n matrix with one dimensional array of size n.
+	Author: Efriem Desalew, efidesalew@gmail.com, +251932179081
+	
+
+*/
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
@@ -21,7 +27,7 @@ int main(void)
 	row = strtol(argv[1],NULL,10);
 	/* getting col size from command line */
   col = strtol(argv[1],NULL,10);
-	/*allocating memory for an array*/
+	/*allocating memory for the two dimensional array */
   array = malloc(row*sizeof(int*));
 	for(int i=0;i<row;i++){
 	array[i] = malloc(col*sizeof(int));
