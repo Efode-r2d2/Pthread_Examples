@@ -23,7 +23,8 @@ void print2D(int** array, int col, int row);
 void setZero(int * array, int size);
 /*multiplication function m*n array with n size array */
 void mult(int **array, int *x, int *y, int col, int row);
-
+/* calculate time elapsed */
+void timeElapsed(clock_t begin, clock_t end);
 int main(int argc, char * argv[])
 {
 	int col,row;
@@ -70,6 +71,8 @@ int main(int argc, char * argv[])
   printf("output 1D array \n");
   print(y,row);
 	
+	/* calculate time elapsed */
+	timeElapsed(begin,end);
 	return 0;
 }
 /* initializing one dimensional array */
@@ -116,6 +119,11 @@ void setZero(int * array, int size){
 	for(int i=0;i<size;i++){
 		array[i]=0;
 	}
+}
+/* calculate time elapsed */
+void timeElapsed(clock_t begin, clock_t end){
+	float time_elapsed = (float)(((end-begin)*(1000.0))/CLOCKS_PER_SEC);
+	printf("Time Elapsed is %f ms \n", time_elapsed);
 }
 
 
