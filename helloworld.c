@@ -11,7 +11,7 @@ void * Hello(void* rank);
 
 int main(int argc, char * argv[]){
 	long thread;
-	pthread_t thread_handles;
+	pthread_t* thread_handles;
 	/* Get number of threads from command line */
 	thread_count = strtol(argv[1],NULL,10);
 	thread_handles = malloc(thread_count*sizeof(pthread_t));
