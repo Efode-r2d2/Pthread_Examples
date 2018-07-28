@@ -1,8 +1,10 @@
 /*****************************************************************************
+	
 	Desc: Simple serial matrix multiplication program 
 	this program can multiply m*n matrix with one dimensional array of size n.
 	Author: Efriem Desalew, efidesalew@gmail.com
-	
+  Compiling: gcc -o [object file name] [source file name]
+  Running: ./[object file name] [row size] [col size]
 
 */
 #include<stdio.h>
@@ -21,9 +23,9 @@ void print2D(int** array, int col, int row);
 void setZero(int * array, int size);
 /*multiplication function m*n array with n size array */
 void mult(int **array, int *x, int *y, int col, int row);
-int main(void)
+int main(int argc, char * argv[])
 {
-	int col;row;
+	int col,row;
 	int ** array;
 	int * y, x;
 	
@@ -59,7 +61,7 @@ int main(void)
   print(y,row); 
 	
 	/*multiplication */
-	mul(array,x,y,col,row);
+	mult(array,x,y,col,row);
 	
 	/* printing the result */
   printf("output 1D array \n");
@@ -71,7 +73,7 @@ int main(void)
 void init(int * array, int size){
 	srand(1);
 	for(int i=0;i<size;i++){
-		array[i] = rand();	
+		array[i] = i+1;	
 	}
 }
 /* printing one dimensional array */
@@ -85,7 +87,7 @@ void init2D(int ** array, int col, int row){
 	srand(1);
 	for(int i=0;i<row;i++){
 		for(int j=0;j<col;j++){
-			array[i][j]= rand();
+			array[i][j]= i*j+1;
 		}	
 	}
 }
