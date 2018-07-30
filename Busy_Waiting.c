@@ -55,6 +55,7 @@ void * Thread_sum(void* rank){
 	long long my_n = n/thread_count;
 	long long my_first_i = my_n*my_rank;
 	long long my_last_i = my_first_i+my_n;
+	double my_sum = 0.0;
 	
 	if(my_first_i%2==0)
 		factor=1.0;
@@ -62,12 +63,12 @@ void * Thread_sum(void* rank){
 		factor = -1.0;
 	
 	for(i=my_first_i;i<my_last_i;i++,factor=-factor){
-		/* busy waiting */
-		while (flag != my_rank);
-		sum+=factor/(2*i+1);
-		flag = (flag+1) % thread_count;	
+		my_sum+=factor/(2*i+1);
 	}
-	
+	/* busy waiting */
+	while (flag != my_rank);
+	sum+=my_sum;
+	flag = (flag+1) % thread_count;	
 	return NULL;
 }
 /* calculate time elapsed */
